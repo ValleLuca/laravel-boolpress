@@ -100,33 +100,33 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+
         $request->validate([
-            "title"=> "required|string|max:100|unique:posts",
-            "content"=> "required|string|max:200|unique:posts",
+            "title"=> "required|string|max:100|unique:posts,title,". $post->id,
+            "content"=> "required|string|max:200",
         ]);
         
         $addpost = $request->all();
-
         if ($post->title == $addpost['title']) {
             $tempSlug = $post->slug;
         } else {
             $tempSlug = Str::of($addpost['title'])->slug("-");
             $count = 1;
-            while (Post::where('slug', $tempSlug)->where('id', '!=', $post->id)->first()) {
-                $tempSlug = Str::of($addpost['title'])->slug("-") . '-' . $count;
+            while ( Post::where('slug', $tempSlug)->where('id', '!=', $post->id)->first() ) {
+                $tempSlug .= '-' . $count;
                 $count ++;
             }
         }
 
         $addpost['slug'] = $tempSlug;
 
-        $newPosts = new Post();
-        $newPosts->fill($addpost);
-        $newPosts->save();
+        $post->fill($addpost);
+        $post->save();
 
         $post->tags()->sync($addpost['tags']);
+        return redirect()->route('admin.post.show', $post->id);
 
-        return redirect()->route('admin.post.show', $newPosts->id);
+
     }
 
     /**

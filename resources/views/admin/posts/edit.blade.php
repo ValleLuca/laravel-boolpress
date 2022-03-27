@@ -29,7 +29,7 @@
             @foreach ($tags as $item_tag)
 
                 <div class="form-check">
-                    <input class="form-check-input"  type="checkbox" id="{{$item_tag->slug}}" name="tags[]" value="{{$item_tag->id}}" {{ ($post->tags->contains($item_tag)) ? "checked" : "" }}>
+                    <input class="form-check-input" type="checkbox" id="{{$item_tag->slug}}" name="tags[]" value="{{$item_tag->id}}" {{ ($post->tags->contains($item_tag)) ? "checked" : "" }}>
                     <label class="form-check-label" for="{{$item_tag->slug}}">
                         {{$item_tag->name}}
                     </label>
