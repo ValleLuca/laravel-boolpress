@@ -103,7 +103,7 @@ class PostController extends Controller
 
         $request->validate([
             "title"=> "required|string|max:100|unique:posts,title,". $post->id,
-            "content"=> "required|string|max:200",
+            "content"=> "required|string",
         ]);
         
         $addpost = $request->all();

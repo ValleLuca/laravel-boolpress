@@ -1,9 +1,10 @@
 <template>
-  <div>
-      <div>
-          <h1>Questo è il bellissimo header finalmente spuntato</h1>
-      </div>
-  </div>
+  <header>
+    <nav>
+      <li><router-link :to="{ name: 'home' }">HOME</router-link></li>
+      <li><router-link :to="{ name: 'prodotti' }">PRODOTTI</router-link></li>
+    </nav>
+  </header>
 </template>
 
 <script>

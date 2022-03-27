@@ -27,3 +27,7 @@ Route::middleware('auth')
         Route::get('/', 'HomeControler@index')->name('home');
         Route::resource('/post', 'PostController');
     });
+
+Route::get("{any?}", function() {
+    return view("welcome");
+})->where("any", ".*");

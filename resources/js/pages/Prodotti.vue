@@ -1,15 +1,12 @@
 <template>
-  <main>
-      <router-view></router-view>
-  </main>
+    <div>
+        <h2>Questa è la page dei prodotti</h2>
+    </div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'Main',
-
+    name: 'Prodotti',
 }
 </script>
 

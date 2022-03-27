@@ -37351,9 +37351,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\PC\Desktop\Boolean\Vs code e Github repository\laravel-api\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\Users\PC\Desktop\Boolean\Vs code e Github repository\laravel-api\resources\sass\admin.scss */"./resources/sass/admin.scss");
-module.exports = __webpack_require__(/*! C:\Users\PC\Desktop\Boolean\Vs code e Github repository\laravel-api\resources\sass\front.scss */"./resources/sass/front.scss");
+__webpack_require__(/*! C:\Users\PC\Desktop\Boolean\Vs code e Github repository\laravel-boolpress\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\Users\PC\Desktop\Boolean\Vs code e Github repository\laravel-boolpress\resources\sass\admin.scss */"./resources/sass/admin.scss");
+module.exports = __webpack_require__(/*! C:\Users\PC\Desktop\Boolean\Vs code e Github repository\laravel-boolpress\resources\sass\front.scss */"./resources/sass/front.scss");
 
 
 /***/ })
