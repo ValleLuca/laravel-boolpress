@@ -18,13 +18,19 @@
         </p>
 
 
+        
         <form action="{{route("admin.post.destroy", $post->id)}}" method="POST">
             @csrf
             @method("DELETE")
             <button type="submit" class="btn btn-danger">Cancella</button>
         </form>
 
-        <a href="{{route("admin.post.index")}}"><button type="button" class="btn btn-primary mt-1">Indietro</button></a>
+        <div class="text-center m-1">
+            <span><a href="{{route("admin.post.index")}}"><button type="button" class="btn btn-primary">Indietro</button></a></span>
+            <span><a href="{{route("admin.post.create", $post->id)}}"><button type="button" class="btn btn-success">Aggiungi</button></a></span>
+        </div>
+
+        
     </div>
 
         

@@ -2,18 +2,19 @@
     <div class="container">
       <div class="post" v-for="post in posts" :key="post.slug">
           <h2>{{ post.title }}</h2>
-          <div v-if="post.category" class="category">
-              {{ post.category ? post.category.type : 'null' }}
+          <div v-if="post.category" >
+              <span class="category">CATEGORIA:</span> {{ post.category ? post.category.type : 'null' }}
           </div>
           <div class="tags">
               <ul>
-                  <li v-for="tag in post.tags" :key="tag.id">
+                  <p>TAG:</p>
+                  <li v-for="tag in post.tags" :key="tag.slug">
                       {{ tag.name }}
                   </li>
               </ul>
           </div>
           <p>{{ post.content }}</p>
-          <router-link :to="{ name: 'single-post', params: { slug: post.slug }}">visualizza post</router-link>
+          <router-link :to="{ name: 'single-post', params: { slug: post.slug }}" class="link_option">visualizza post</router-link>
       </div>
     </div>
 </template>
@@ -29,7 +30,7 @@ export default {
         };
     },
     created() {
-        axios.get("/api/posts").then((response) => {
+        axios.get('/api/posts').then((response) => {
             this.posts = response.data;
         });
     },
@@ -47,14 +48,32 @@ export default {
     border: 1px solid black;
     min-width: 150px;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .category{
-    border: 1px solid red;
+    color: rgb(13, 202, 240);
 }
 
 .tags{
-    border: 1px solid blue;
+    p{
+        color: red;
+    }
+
+    ul{
+        padding: 0px;
+    }
+    li{
+        list-style: none;
+    }
+}
+
+.link_option{
+     text-decoration: none;
+     color: blue;
+      &:hover{
+      color: red;
+    }
 }
 
 </style>

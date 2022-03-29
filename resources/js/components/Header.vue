@@ -1,8 +1,8 @@
 <template>
   <header>
     <nav>
-      <li><router-link :to="{ name: 'home' }">HOME</router-link></li>
-      <li><router-link :to="{ name: 'prodotti' }">PRODOTTI</router-link></li>
+      <span><router-link class="link" :to="{ name: 'home' }">HOME</router-link></span>
+      <span><router-link class="link" :to="{ name: 'prodotti' }">PRODOTTI</router-link></span>
     </nav>
   </header>
 </template>
@@ -16,6 +16,21 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
+nav{
+  li{
+    list-style: none;
+  }
+  .link{
+    text-decoration: none;
+    color: black;
+    &:hover{
+      color: blue;
+    }
+  }
+}
+
+
 
 </style>
