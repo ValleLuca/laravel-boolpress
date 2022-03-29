@@ -13,7 +13,7 @@
               </ul>
           </div>
           <p>{{ post.content }}</p>
-          <router-link :to="{ name: 'single-post'}">visualizza post</router-link>
+          <router-link :to="{ name: 'single-post', params: { slug: post.slug }}">visualizza post</router-link>
       </div>
     </div>
 </template>

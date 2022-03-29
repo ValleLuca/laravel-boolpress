@@ -1,20 +1,16 @@
 <template>
     <div class="container">
-      <div class="post" v-for="post in posts" :key="post.slug">
-          <h2>{{ post.title }}</h2>
-          <div v-if="post.category" class="category">
-              {{ post.category.name }}
-          </div>
-          <div class="tags">
-              <ul>
-                  <li v-for="tag in post.tags" :key="tag.id">
-                      {{ tag.name }}
-                  </li>
-              </ul>
-          </div>
-          <p>{{ post.content }}</p>
-          <router-link :to="{ name: 'single-post', param: { slug: posts.slug }}">Visualizza post</router-link>
-      </div>
+        <h1>{{post.title}}</h1>
+        <div v-html="post.content"></div>
+        <p v-if="post.category"><strong>Categoria:</strong> {{ post.category.name }} </p>
+        <div> 
+            <strong>Tags</strong>
+            <ul>
+                <li v-for="tag in post.tags" :key="tag.id">
+                    {{ tag.name }}
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -22,6 +18,16 @@
 
 export default {
     name: 'SinglePost',
+      data() {
+        return {
+            post: {},
+        };
+    },
+    created() {
+        axios.get(`/api/posts/${this.$route.params.slug}`).then((response) => {
+            this.post = response.data;
+        });
+    },
 }
 </script>
 

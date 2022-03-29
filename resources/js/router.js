@@ -5,6 +5,8 @@ Vue.use(VueRouter);
 
 import Home from "./pages/Home";
 import Prodotti from "./pages/Prodotti";
+import SinglePost from "./pages/SinglePost";
+
 
 
 const router = new VueRouter({
@@ -22,9 +24,9 @@ const router = new VueRouter({
         },
         {
             path: "/posts/:slug",
-            name: "post-singolo",
+            name: "single-post",
             component: SinglePost
-        },
+        }
     ]
 });
 
