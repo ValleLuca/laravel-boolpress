@@ -2,7 +2,7 @@
     <div class="container">
         <h1>{{post.title}}</h1>
         <div v-html="post.content"></div>
-        <p v-if="post.category"><strong>Categoria:</strong> {{ post.category.name }} </p>
+        <p v-if="post.category"><strong>Categoria:</strong> {{ post.category ? post.category.type : 'null' }} </p>
         <div> 
             <strong>Tags</strong>
             <ul>
@@ -27,7 +27,7 @@ export default {
         axios.get(`/api/posts/${this.$route.params.slug}`).then((response) => {
             this.post = response.data;
         });
-    },
+    }
 }
 </script>
 
@@ -36,6 +36,8 @@ export default {
 .container{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .post{

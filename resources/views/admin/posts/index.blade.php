@@ -22,8 +22,8 @@
                     <td class="align-middle">{{$post->content}}</td>
                     <td class="align-middle">{{$post->slug}}</td>
                     <td class="align-middle">{{ $post->category ? $post->category->type : 'null' }}</td>
-                    <td>
-                        @foreach ($post->tags as $item_tag)
+                    <td class="align-middle">
+                        @foreach ($tags as $item_tag)
                             {{$item_tag->name}}
                         @endforeach
                     </td>

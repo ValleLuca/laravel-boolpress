@@ -2145,7 +2145,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-67cb3b51] {\n  display: flex;\n  justify-content: center;\n}\n.post[data-v-67cb3b51] {\n  border: 1px solid black;\n  min-width: 150px;\n  text-align: center;\n}\n.category[data-v-67cb3b51] {\n  border: 1px solid red;\n}\n.tags[data-v-67cb3b51] {\n  border: 1px solid blue;\n}", ""]);
+exports.push([module.i, ".container[data-v-67cb3b51] {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  align-items: center;\n}\n.post[data-v-67cb3b51] {\n  border: 1px solid black;\n  min-width: 150px;\n  text-align: center;\n}\n.category[data-v-67cb3b51] {\n  border: 1px solid red;\n}\n.tags[data-v-67cb3b51] {\n  border: 1px solid blue;\n}", ""]);
 
 // exports
 
@@ -3398,7 +3398,9 @@ var render = function () {
           post.category
             ? _c("div", { staticClass: "category" }, [
                 _vm._v(
-                  "\n          " + _vm._s(post.category.name) + "\n      "
+                  "\n          " +
+                    _vm._s(post.category ? post.category.type : "null") +
+                    "\n      "
                 ),
               ])
             : _vm._e(),
@@ -3526,7 +3528,11 @@ var render = function () {
     _vm.post.category
       ? _c("p", [
           _c("strong", [_vm._v("Categoria:")]),
-          _vm._v(" " + _vm._s(_vm.post.category.name) + " "),
+          _vm._v(
+            " " +
+              _vm._s(_vm.post.category ? _vm.post.category.type : "null") +
+              " "
+          ),
         ])
       : _vm._e(),
     _vm._v(" "),

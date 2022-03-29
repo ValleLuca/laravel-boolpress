@@ -4,9 +4,18 @@
 
     <div class="text-center">
         <h1>{{$post->title}}</h1>
-        <p>{{$post->description}}</p>
+        <p class="text-info">CONTENT:</p>
+        <p>{{$post->content}}</p>
+        <p class="text-info">SLUG:</p>
         <p>{{$post->slug}}</p>
-        <p>{{$post->category_id}}</p>
+        <p class="text-info">CATEGORIA:</p>
+        <p>{{ $post->category ? $post->category->type : 'null' }}</p>
+        <p class="text-info">TAG:</p>
+        <p>
+            @foreach ($post->tags as $item_tag)
+                {{$item_tag->name}}
+            @endforeach
+        </p>
 
 
         <form action="{{route("admin.post.destroy", $post->id)}}" method="POST">

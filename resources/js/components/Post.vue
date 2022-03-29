@@ -3,7 +3,7 @@
       <div class="post" v-for="post in posts" :key="post.slug">
           <h2>{{ post.title }}</h2>
           <div v-if="post.category" class="category">
-              {{ post.category.name }}
+              {{ post.category ? post.category.type : 'null' }}
           </div>
           <div class="tags">
               <ul>

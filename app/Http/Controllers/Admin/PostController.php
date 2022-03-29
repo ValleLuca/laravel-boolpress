@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Category;
+
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Category;
 use App\Tag;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -20,7 +21,8 @@ class PostController extends Controller
     {
         $posts = Post::all();
         $category = Category::all();
-        return view('admin.posts.index', compact('posts', 'category'));
+        $tags = Tag::all();
+        return view('admin.posts.index', compact('posts', 'category', 'tags'));
     }
 
     /**

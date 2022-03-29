@@ -42,7 +42,6 @@
             <select name="category_id" id="">
                 <option value="">----</option>
                     @foreach ($datipost as $element)
-                    @dump($datipost)
                         <option value="{{$element->id}}">{{$element->type}}</option>
                     @endforeach
             </select>
